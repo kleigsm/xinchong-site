@@ -37,6 +37,10 @@ export default function Home() {
       <p className="max-w-lg text-xs leading-relaxed text-zinc-400">
         不做聊天机器人，不做养成系统，不做功能堆砌。默认静音、默认不主动搭话。
       </p>
+
+      <footer className="mt-6 text-xs text-zinc-400">
+        芯宠 · 集美大学《人机交互与设计心理学》课程项目
+      </footer>
     </main>
   );
 }
