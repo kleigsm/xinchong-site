@@ -3,7 +3,10 @@
 > 芯宠的产品官网：让第一次听说它的人 30 秒内明白这是什么，并把 Windows 客户端交到用户手里。
 
 - **产品主仓库**：[kleigsm/xinchong](https://github.com/kleigsm/xinchong)
-- **线上站点**：部署后填写
+- **线上站点（国内可直连）**：<https://xinchong-site.onrender.com>
+- **备用站点（境外访问更稳）**：<https://xinchong-site.vercel.app>
+
+> 实测：国内网络直连 Render 正常（~1s），直连 `*.vercel.app` 会超时。对外分享优先用 Render 地址。
 
 ---
 
@@ -26,7 +29,7 @@
 | 框架 | Next.js 16（App Router）+ TypeScript |
 | 样式 | Tailwind CSS 4 |
 | 构建 | Turbopack |
-| 宿主 | Vercel（主站）/ Render（备用） |
+| 宿主 | Render（主站）/ Vercel（备用） |
 
 ---
 
@@ -63,22 +66,27 @@ pnpm lint        # 代码检查
 
 ## 部署
 
-**Vercel（主站，推荐）**
+两个平台都已绑定本仓库，push 到 `main` 会同时触发自动部署。
+
+**Render（主站）**
+
+- Build Command: `pnpm install --frozen-lockfile && pnpm run build`
+- Start Command: `pnpm exec next start -H 0.0.0.0 -p $PORT`
+- 环境变量：`NODE_VERSION=24`
+- 域名：<https://xinchong-site.onrender.com>
+
+> 免费实例 15 分钟无访问会休眠，冷启动约 30–60 秒。
+
+**Vercel（备用）**
 
 ```bash
-vercel link      # 首次关联项目
-vercel --prod    # 部署到生产
+vercel link      # 首次关联项目（已完成）
+vercel --prod    # 手动部署
 ```
 
-或在 Vercel 面板导入本仓库，之后每次 push 到 `main` 自动部署。
+- 域名：<https://xinchong-site.vercel.app>
 
-**Render（备用站）**
-
-新建 Web Service 并关联本仓库：
-
-- Build Command: `pnpm install && pnpm build`
-- Start Command: `pnpm start`
-- Node 版本：24
+> 国内直连 `*.vercel.app` 会超时，仅作境外/备用入口。
 
 ---
 
@@ -107,7 +115,7 @@ https://github.com/kleigsm/xinchong/releases/latest
 - [ ] 下载页：版本号、系统要求、更新日志
 - [ ] 隐私承诺区块（本地处理 / 用后即删）
 - [ ] 打通 GitHub Releases 下载链路
-- [ ] 绑定 Vercel / Render 自动部署
+- [x] 绑定 Vercel / Render 自动部署
 
 ---
 
