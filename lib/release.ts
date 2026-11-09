@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 客户端发布信息。
  *
  * 发版流程：打好 zip → 建 GitHub Release → 把下面三个字段改掉 → push。
@@ -9,19 +9,19 @@ export type ReleaseStatus = "building" | "available";
 
 export const release = {
   /** 当前版本号，展示用 */
-  version: "v0.1.0",
+  version: "v0.1.1",
 
   /** building = 开发中（按钮置灰）；available = 可下载 */
   status: "available" as ReleaseStatus,
 
   /** 产物文件名，仅展示 */
-  fileName: "xinchong-win-x64-0.1.0.zip",
+  fileName: "xinchong-win-x64-0.1.1.zip",
 
   /** 文件大小，展示用；发版后填真实值，如 "24.6 MB" */
   size: "136.5 MB",
 
   /** 发布日期，展示用；发版后填，如 "2026-11-20" */
-  date: "2026-11-06",
+  date: "2026-11-09",
 
   /** 下载地址：指向产品主仓库的最新 Release */
   url: "https://github.com/kleigsm/xinchong/releases/latest",
@@ -30,7 +30,7 @@ export const release = {
   notesUrl: "https://github.com/kleigsm/xinchong/releases",
 
   /** 本次更新摘要 */
-  notes: "桌面悬浮、8 个动作、三套性格、导入自己的角色、可选聊天",
+  notes: "修复聊天输入、新增外观设置（透明度/动画速度/置顶）",
 
   /** 系统要求 */
   requires: {
